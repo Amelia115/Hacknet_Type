@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Cyber_Game_1/1.0.0": {
+        "runtime": {
+          "Cyber_Game_1.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Cyber_Game_1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,166 @@
+
+Field name:	setup_sects
+Type:		read
+Offset/size:	0x1f1/1
+Protocol:	ALL
+
+  The size of the setup code in 512-byte sectors.  If this field is
+  0, the real value is 4.  The real-mode code consists of the boot
+  sector (always one 512-byte sector) plus the setup code.
+
+Field name:	 root_flags
+Type:		 modify (optional)
+Offset/size:	 0x1f2/2
+Protocol:	 ALL
+
+  If this field is nonzero, the root defaults to readonly.  The use of
+  this field is deprecated; use the "ro" or "rw" options on the
+  command line instead.
+
+Field name:	syssize
+Type:		read
+Offset/size:	0x1f4/4 (protocol 2.04+) 0x1f4/2 (protocol ALL)
+Protocol:	2.04+
+
+  The size of the protected-mode code in units of 16-byte paragraphs.
+  For protocol versions older than 2.04 this field is only two bytes
+  wide, and therefore cannot be trusted for the size of a kernel if
+  the LOAD_HIGH flag is set.
+
+Field name:	ram_size
+Type:		kernel internal
+Offset/size:	0x1f8/2
+Protocol:	ALL
+
+  This field is obsolete.
+
+Field name:	vid_mode
+Type:		modify (obligatory)
+Offset/size:	0x1fa/2
+
+  Please see the section on SPECIAL COMMAND LINE OPTIONS.
+
+Field name:	root_dev
+Type:		modify (optional)
+Offset/size:	0x1fc/2
+Protocol:	ALL
+
+  The default root device device number.  The use of this field is
+  deprecated, use the "root=" option on the command line instead.
+
+Field name:	boot_flag
+Type:		read
+Offset/size:	0x1fe/2
+Protocol:	ALL
+
+  Contains 0xAA55.  This is the closest thing old Linux kernels have
+  to a magic number.
+
+Field name:	jump
+Type:		read
+Offset/size:	0x200/2
+Protocol:	2.00+
+
+  Contains an x86 jump instruction, 0xEB followed by a signed offset
+  relative to byte 0x202.  This can be used to determine the size of
+  the header.
+
+Field name:	header
+Type:		read
+Offset/size:	0x202/4
+Protocol:	2.00+
+
+  Contains the magic number "HdrS" (0x53726448).
+
+Field name:	version
+Type:		read
+Offset/size:	0x206/2
+Protocol:	2.00+
+
+  Contains the boot protocol version, in (major << 8)+minor format,
+  e.g. 0x0204 for version 2.04, and 0x0a11 for a hypothetical version
+  10.17.
+
+Field name:	realmode_swtch
+Type:		modify (optional)
+Offset/size:	0x208/4
+Protocol:	2.00+
+
+  Boot loader hook (see ADVANCED BOOT LOADER HOOKS below.)
+
+Field name:	start_sys_seg
+Type:		read
+Offset/size:	0x20c/2
+Protocol:	2.00+
+
+  The load low segment (0x1000).  Obsolete.
+
+Field name:	kernel_version
+Type:		read
+Offset/size:	0x20e/2
+Protocol:	2.00+
+
+  If set to a nonzero value, contains a pointer to a NUL-terminated
+  human-readable kernel version number string, less 0x200.  This can
+  be used to display the kernel version to the user.  This value
+  should be less than (0x200*setup_sects).
+
+  For example, if this value is set to 0x1c00, the kernel version
+  number string can be found at offset 0x1e00 in the kernel file.
+  This is a valid value if and only if the "setup_sects" field
+  contains the value 15 or higher, as:
+
+	0x1c00  < 15*0x200 (= 0x1e00) but
+	0x1c00 >= 14*0x200 (= 0x1c00)
+
+	0x1c00 >> 9 = 14, so the minimum value for setup_secs is 15.
+
+Field name:	type_of_loader
+Type:		write (obligatory)
+Offset/size:	0x210/1
+Protocol:	2.00+
+
+  If your boot loader has an assigned id (see table below), enter
+  0xTV here, where T is an identifier for the boot loader and V is
+  a version number.  Otherwise, enter 0xFF here.
+
+  For boot loader IDs above T = 0xD, write T = 0xE to this field and
+  write the extended ID minus 0x10 to the ext_loader_type field.
+  Similarly, the ext_loader_ver field can be used to provide more than
+  four bits for the bootloader version.
+
+  For example, for T = 0x15, V = 0x234, write:
+
+  type_of_loader  <- 0xE4
+  ext_loader_type <- 0x05
+  ext_loader_ver  <- 0x23
+
+  Assigned boot loader ids (hexadecimal):
+
+	0  LILO			(0x00 reserved for pre-2.00 bootloader)
+	1  Loadlin
+	2  bootsect-loader	(0x20, all other values reserved)
+	3  Syslinux
+	4  Etherboot/gPXE/iPXE
+	5  ELILO
+	7  GRUB
+	8  U-Boot
+	9  Xen
+	A  Gujin
+	B  Qemu
+	C  Arcturus Networks uCbootloader
+	D  kexec-tools
+	E  Extended		(see ext_loader_type)
+	F  Special		(0xFF = undefined)
+       10  Reserved
+       11  Minimal Linux Bootloader <http://sebastian-plotz.blogspot.de>
+       12  OVMF UEFI virtualization stack
+
+  Please contact <hpa@zytor.com> if you need a bootloader ID
+  value assigned.
+
+Field name:	loadflags
+Type:		modify (obligatory)
+Offset/size:	0x211/1
+Protocol:	2.00+
+

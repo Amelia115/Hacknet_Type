@@ -1,0 +1,13 @@
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\obj\Debug\netcoreapp3.1\Cyber_Game_1.csprojAssemblyReference.cache
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\obj\Debug\netcoreapp3.1\Cyber_Game_1.csproj.CoreCompileInputs.cache
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\obj\Debug\netcoreapp3.1\Cyber_Game_1.AssemblyInfoInputs.cache
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\obj\Debug\netcoreapp3.1\Cyber_Game_1.AssemblyInfo.cs
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\bin\Debug\netcoreapp3.1\Cyber_Game_1.exe
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\bin\Debug\netcoreapp3.1\Cyber_Game_1.deps.json
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\bin\Debug\netcoreapp3.1\Cyber_Game_1.runtimeconfig.json
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\bin\Debug\netcoreapp3.1\Cyber_Game_1.runtimeconfig.dev.json
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\bin\Debug\netcoreapp3.1\Cyber_Game_1.dll
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\bin\Debug\netcoreapp3.1\Cyber_Game_1.pdb
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\obj\Debug\netcoreapp3.1\Cyber_Game_1.dll
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\obj\Debug\netcoreapp3.1\Cyber_Game_1.pdb
+C:\Users\hayden parsons\source\repos\Cyber_Game_1\Cyber_Game_1\obj\Debug\netcoreapp3.1\Cyber_Game_1.genruntimeconfig.cache
